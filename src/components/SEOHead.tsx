@@ -6,12 +6,14 @@ const BUSINESS_DESCRIPTION =
   "Artistic Decorative Concrete provides expert decorative concrete, flatwork, and foundations in Billings, MT. Serving Montana since 2006.";
 
 const SERVICES_ITEM_LIST = [
-  "Concrete Flat Work",
-  "Stamped Concrete",
+  "Decorative & Stamped Concrete",
+  "Patios, Driveways & Flatwork",
+  "Stone Work & Outdoor Features",
   "Retaining Walls",
-  "Foundations",
-  "Slab on Grade",
-  "Excavation Services",
+  "Foundations & Slab on Grade",
+  "Polished Concrete",
+  "Concrete Restoration",
+  "Custom Concrete Solutions",
 ];
 
 interface SEOHeadProps {

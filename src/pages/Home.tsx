@@ -121,8 +121,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Compact Photo Carousel */}
-      <section className="bg-background px-4 py-10 md:py-14">
+      {/* Constrained Photo Carousel */}
+      <section className="bg-background px-4 py-8 md:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
             <h2 className="text-balance text-2xl font-bold leading-tight tracking-tighter text-foreground md:text-3xl">
@@ -132,22 +132,22 @@ export default function Home() {
               A look at the decorative concrete work we deliver across Montana
             </p>
           </div>
-          <div className="mt-6">
+          <div className="mt-5">
             <Carousel
               opts={{ loop: true }}
               setApi={setCarouselApi}
-              className="mx-auto max-w-3xl"
+              className="mx-auto max-w-4xl"
             >
               <CarouselContent>
                 {SHOWCASE_IMAGES.map((slide) => (
-                  <CarouselItem key={slide.src} className="md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={slide.src} className="sm:basis-1/2 lg:basis-1/3">
                     <div className="flex flex-col gap-2">
-                      <div className="overflow-hidden rounded-lg">
+                      <div className="h-44 w-full overflow-hidden rounded-lg">
                         <img
                           src={slide.src}
                           alt={slide.caption}
                           loading="lazy"
-                          className="aspect-[4/3] w-full object-cover"
+                          className="h-full w-full object-cover"
                         />
                       </div>
                       <p className="text-center text-xs text-muted-foreground">
@@ -165,20 +165,20 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="bg-muted px-4 py-14 md:py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="bg-muted px-4 py-12 md:py-16">
+        <div className="mx-auto max-w-6xl">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
               Expert Concrete Services
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Upscale decorative concrete for residential and commercial properties
+            <p className="mt-4 text-base text-muted-foreground">
+              Upscale decorative concrete for residential and commercial properties in Billings, MT
             </p>
           </div>
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
             {SERVICES.map((service) => (
               <Card key={service.slug} className="h-full overflow-hidden">
-                <div className="aspect-[4/3] w-full overflow-hidden">
+                <div className="h-44 w-full overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.imageAlt}
@@ -186,18 +186,21 @@ export default function Home() {
                     className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
-                <CardHeader className="gap-2">
-                  <CardTitle className="text-lg">{service.title}</CardTitle>
+                <CardHeader className="gap-2 p-4">
+                  <div className="flex items-center gap-2">
+                    <service.icon className="size-5 text-primary shrink-0" aria-hidden="true" />
+                    <CardTitle className="text-base">{service.title}</CardTitle>
+                  </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
+                <CardContent className="p-4 pt-0">
+                  <p className="text-xs leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <Link to="/services">
               <Button size="lg" variant="outline">
                 View All Services

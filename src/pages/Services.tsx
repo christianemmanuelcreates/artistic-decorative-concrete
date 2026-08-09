@@ -1,29 +1,18 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-  type CarouselApi,
-} from "@/components/ui/carousel";
 import { Phone, Sparkles } from "lucide-react";
-import { SERVICES, SHOWCASE_IMAGES } from "@/data/services";
+import { SERVICES } from "@/data/services";
 
 export default function Services() {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-
   return (
     <Layout
       seo={{
         title: "Concrete Services in Billings, MT | Artistic Decorative",
         description:
-          "Explore complete concrete construction services: flatwork, stamped concrete, retaining walls, foundations, slab-on-grade, and excavation in Billings, MT.",
+          "Decorative concrete, stamped concrete, flatwork, retaining walls, foundations, slab-on-grade, and polished concrete in Billings, MT. Serving Montana since 2006.",
         canonical: "https://artisticdecorativeconcrete.com/services",
         ogType: "website",
         schemaTypes: ["LocalBusiness", "Organization", "BreadcrumbList", "ItemList"],
@@ -31,7 +20,7 @@ export default function Services() {
       hasLocalBusiness={true}
     >
       {/* Hero */}
-      <section className="bg-[#1A1A1D] pt-12 pb-12 md:pt-16 md:pb-14">
+      <section className="bg-[#1A1A1D] pt-12 pb-10 md:pt-16 md:pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           <Badge variant="secondary" className="mb-4">
             Concrete Contractors in Billings, MT
@@ -40,8 +29,9 @@ export default function Services() {
             Complete Concrete Construction &amp; Decorative Services
           </h1>
           <p className="mt-4 text-sm md:text-base text-white/70 leading-relaxed max-w-[60ch]">
-            From stamped patios and driveways to strong foundations and retaining walls, we offer
-            complete professional concrete services tailored to every property.
+            Artistic Decorative Concrete is the trusted concrete contractor in Billings, MT for
+            stamped concrete, flatwork, retaining walls, foundations, slab-on-grade, and polished
+            concrete. Serving residential and commercial properties across Montana since 2006.
           </p>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link to="/contact">
@@ -60,21 +50,21 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Service cards grid */}
-      <section className="bg-background py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-8">
+      {/* Service cards grid - 3 columns on desktop */}
+      <section className="bg-background py-10 md:py-14">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center mb-6">
             <h2 className="text-2xl md:text-3xl tracking-tighter leading-none font-bold text-foreground">
               Our Services
             </h2>
             <p className="mt-2 text-sm text-muted-foreground max-w-[55ch]">
-              Click through the gallery below to see examples of our completed work.
+              Complete concrete and decorative services for residential and commercial properties in Billings, MT.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {SERVICES.map((service) => (
               <Card key={service.slug} className="h-full overflow-hidden">
-                <div className="aspect-[4/3] w-full overflow-hidden">
+                <div className="h-44 w-full overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.imageAlt}
@@ -84,13 +74,16 @@ export default function Services() {
                 </div>
                 <CardHeader className="gap-2 p-4">
                   <div className="flex items-center gap-2">
-                    <service.icon className="size-5 text-primary" aria-hidden="true" />
+                    <service.icon className="size-5 text-primary shrink-0" aria-hidden="true" />
                     <CardTitle className="text-base">{service.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="p-4 pt-0">
                   <p className="text-xs leading-relaxed text-muted-foreground">
                     {service.description}
+                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground/80">
+                    {service.seoDescription}
                   </p>
                 </CardContent>
               </Card>
@@ -99,49 +92,8 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Project carousel */}
-      <section className="bg-muted py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-8">
-            <h2 className="text-2xl md:text-3xl tracking-tighter leading-none font-bold text-foreground">
-              Project Showcase
-            </h2>
-            <p className="mt-2 text-sm text-muted-foreground max-w-[55ch]">
-              A selection of completed work across Montana
-            </p>
-          </div>
-          <Carousel
-            opts={{ loop: true }}
-            setApi={setCarouselApi}
-            className="mx-auto max-w-5xl"
-          >
-            <CarouselContent>
-              {SHOWCASE_IMAGES.map((image) => (
-                <CarouselItem key={image.src} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="flex flex-col gap-2">
-                    <div className="overflow-hidden rounded-lg">
-                      <img
-                        src={image.src}
-                        alt={image.caption}
-                        loading="lazy"
-                        className="aspect-[4/3] w-full object-cover"
-                      />
-                    </div>
-                    <p className="text-center text-xs text-muted-foreground">
-                      {image.caption}
-                    </p>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
-      </section>
-
       {/* CTA Banner */}
-      <section className="bg-[#1A1A1D] py-12 md:py-16">
+      <section className="bg-[#1A1A1D] py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           <h2 className="text-2xl md:text-4xl tracking-tighter leading-none font-bold text-white max-w-2xl text-balance">
             Let&apos;s Build Something That Lasts

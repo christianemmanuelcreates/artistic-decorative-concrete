@@ -11,7 +11,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import { MapPin, PhoneCall, Sparkles } from "lucide-react";
-import { SERVICES, SHOWCASE_IMAGES } from "@/data/services";
+import { SERVICES, SHOWCASE_IMAGES, buildLocalizedSeoParagraph } from "@/data/services";
 import type { LocationData } from "@/data/locations";
 
 interface ServiceAreaPageProps {
@@ -58,8 +58,8 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
 
         {/* All Services */}
         <section className="bg-muted px-4 py-12 sm:px-6 lg:px-8 md:py-16">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col items-center text-center mb-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="flex flex-col items-center text-center mb-6">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-balance text-foreground">
                 {location.servicesHeading}
               </h2>
@@ -67,10 +67,10 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
                 {location.servicesIntro}
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {SERVICES.map((service) => (
                 <Card key={service.slug} className="h-full overflow-hidden">
-                  <div className="aspect-[4/3] w-full overflow-hidden">
+                  <div className="h-44 w-full overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.imageAlt}
@@ -80,7 +80,7 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
                   </div>
                   <CardHeader className="gap-2 p-4">
                     <div className="flex items-center gap-2">
-                      <service.icon className="size-5 text-primary" aria-hidden="true" />
+                      <service.icon className="size-5 text-primary shrink-0" aria-hidden="true" />
                       <CardTitle className="text-base">{service.title}</CardTitle>
                     </div>
                   </CardHeader>
@@ -88,17 +88,24 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
                     <p className="text-xs leading-relaxed text-muted-foreground">
                       {service.description}
                     </p>
+                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground/80">
+                      {service.seoDescription}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
             </div>
+            {/* Localized SEO paragraph */}
+            <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
+              {buildLocalizedSeoParagraph(location.name)}
+            </p>
           </div>
         </section>
 
         {/* Project Carousel */}
-        <section className="bg-background px-4 py-12 sm:px-6 lg:px-8 md:py-16">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col items-center text-center mb-8">
+        <section className="bg-background px-4 py-10 sm:px-6 lg:px-8 md:py-14">
+          <div className="mx-auto max-w-5xl">
+            <div className="flex flex-col items-center text-center mb-5">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-balance text-foreground">
                 Our Work in {location.name}
               </h2>
@@ -106,17 +113,17 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
                 A showcase of decorative concrete projects completed in and around {location.name}, MT.
               </p>
             </div>
-            <Carousel opts={{ loop: true }} className="mx-auto max-w-5xl">
+            <Carousel opts={{ loop: true }} className="mx-auto max-w-4xl">
               <CarouselContent>
                 {SHOWCASE_IMAGES.map((image) => (
-                  <CarouselItem key={image.src} className="md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={image.src} className="sm:basis-1/2 lg:basis-1/3">
                     <div className="flex flex-col gap-2">
-                      <div className="overflow-hidden rounded-lg">
+                      <div className="h-44 w-full overflow-hidden rounded-lg">
                         <img
                           src={image.src}
                           alt={image.caption}
                           loading="lazy"
-                          className="aspect-[4/3] w-full object-cover"
+                          className="h-full w-full object-cover"
                         />
                       </div>
                       <p className="text-center text-xs text-muted-foreground">
