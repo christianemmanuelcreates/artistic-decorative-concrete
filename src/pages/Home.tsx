@@ -82,18 +82,18 @@ export default function Home() {
       business={{"name": "Artistic Decorative Concrete", "phone": "+1-406-598-2444", "address": {"addressLocality": "Billings", "addressRegion": "MT", "addressCountry": "US"}, "areaServed": [], "openingHours": []}}
     >
       {/* Hero */}
-      <section className="bg-background px-4 py-20 md:py-24">
+      <section className="bg-[#1A1A1D] px-4 py-20 md:py-24">
         <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
           <Badge variant="secondary" className="mb-6">
             Serving Montana Since 2006
           </Badge>
-          <h1 className="max-w-4xl text-balance text-4xl font-bold leading-none tracking-tighter text-foreground md:text-6xl">
+          <h1 className="max-w-4xl text-balance text-4xl font-bold leading-none tracking-tighter text-white md:text-6xl">
             Artistic Decorative Concrete in Billings, MT
           </h1>
-          <p className="mt-6 max-w-[65ch] text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-[65ch] text-lg leading-relaxed text-white/70">
             Expert decorative concrete solutions, flatwork, and foundations in Billings, MT and the surrounding areas.
           </p>
-          <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-white/70">
             Serving Montana since 2006, we transform old and new concrete surfaces into attractive, long-lasting features for residential and commercial properties.
           </p>
           <div className="mt-8">
@@ -217,12 +217,12 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary px-4 py-16 text-primary-foreground md:py-20">
+      <section className="bg-[#1A1A1D] px-4 py-16 text-white md:py-20">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-primary-foreground md:text-4xl">
+          <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-white md:text-4xl">
             Ready to Enhance Your Property?
           </h2>
-          <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-primary-foreground/90">
+          <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-white/80">
             Get your free estimate today. Call us at (406) 598-2444 or email{" "}
             <a
               href="mailto:chuckyoung1970@gmail.com"
@@ -234,7 +234,7 @@ export default function Home() {
           </p>
           <div className="mt-8">
             <a href="tel:+14065982444">
-              <Button size="lg" variant="secondary">
+              <Button size="lg">
                 <Phone data-icon="inline-start" />
                 Call (406) 598-2444
               </Button>

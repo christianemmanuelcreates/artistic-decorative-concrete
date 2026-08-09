@@ -55,12 +55,12 @@ export default function Forsyth() {
     >
       <div className="flex flex-col">
         {/* Hero */}
-        <section className="bg-background px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+        <section className="bg-[#1A1A1D] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
-            <h1 className="text-4xl font-bold tracking-tighter text-foreground md:text-5xl">
+            <h1 className="text-4xl font-bold tracking-tighter text-white md:text-5xl">
               Decorative Concrete Services in Forsyth, MT
             </h1>
-            <p className="max-w-[65ch] text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="max-w-[65ch] text-base leading-relaxed text-white/70 md:text-lg">
               Artistic Decorative Concrete proudly serves Forsyth, MT, as the
               premier provider of decorative concrete solutions for residential
               and commercial properties. We transform ordinary concrete surfaces
@@ -139,17 +139,17 @@ export default function Forsyth() {
         </section>
 
         {/* CTA Banner */}
-        <section className="bg-primary px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+        <section className="bg-[#1A1A1D] px-4 py-16 sm:px-6 md:py-20 lg:px-8">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground md:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tighter text-white md:text-4xl">
               Transform Your Forsyth Property
             </h2>
-            <p className="max-w-[65ch] text-base leading-relaxed text-primary-foreground">
+            <p className="max-w-[65ch] text-base leading-relaxed text-white/80">
               Upgrade your outdoor or indoor spaces today. Call us at (406)
               598-2444 to get a custom estimate.
             </p>
             <a href="tel:+14065982444">
-              <Button size="lg" variant="secondary">
+              <Button size="lg">
                 <Phone data-icon="inline-start" />
                 Call (406) 598-2444
               </Button>

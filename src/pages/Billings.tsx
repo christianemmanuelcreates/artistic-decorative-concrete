@@ -54,13 +54,13 @@ export default function Billings() {
     >
       <div className="flex flex-col">
         {/* Hero */}
-        <section className="flex flex-col items-center text-center py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <section className="flex flex-col items-center text-center py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#1A1A1D]">
           <div className="max-w-4xl mx-auto">
             <Badge className="mb-4">Serving Billings, MT Since 2006</Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
               Decorative Concrete Services in Billings, MT
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
               When it comes to expert decorative concrete services in Billings,
               MT, Artistic Decorative Concrete delivers beautiful and durable
               results. We specialize in enhancing residential and commercial
@@ -134,18 +134,18 @@ export default function Billings() {
         </section>
 
         {/* CTA Banner */}
-        <section className="flex flex-col items-center text-center bg-primary py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <section className="flex flex-col items-center text-center bg-[#1A1A1D] py-16 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-primary-foreground">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white">
               Upgrade Your Billings Property
             </h2>
-            <p className="mt-4 text-lg text-primary-foreground/90 leading-relaxed">
+            <p className="mt-4 text-lg text-white/80 leading-relaxed">
               Transform your outdoor and indoor spaces today. Call (406) 598-2444
               for a custom quote.
             </p>
             <div className="mt-8">
               <a href="tel:+14065982444">
-                <Button size="lg" variant="secondary">
+                <Button size="lg">
                   Get a Custom Quote
                 </Button>
               </a>

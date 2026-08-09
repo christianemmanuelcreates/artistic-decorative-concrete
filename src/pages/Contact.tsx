@@ -120,12 +120,12 @@ export default function Contact() {
     >
       <section className="flex flex-col">
         {/* Hero */}
-        <section className="flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-12 md:pb-16">
+        <section className="flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-12 md:pb-16 bg-[#1A1A1D]">
           <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-            <h1 className="text-4xl md:text-6xl tracking-tighter leading-none text-pretty max-w-[20ch]">
+            <h1 className="text-4xl md:text-6xl tracking-tighter leading-none text-pretty max-w-[20ch] text-white">
               Contact Artistic Decorative Concrete
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-[65ch]">
+            <p className="text-lg text-white/70 leading-relaxed max-w-[65ch]">
               Get in touch with us for trusted concrete services, patios, and driveways with
               guaranteed quality and honest workmanship. We look forward to helping you with your
               next residential or commercial project.

@@ -55,12 +55,12 @@ export default function Roundup() {
     >
       <div className="flex flex-col">
         {/* Hero */}
-        <section className="flex flex-col items-center gap-8 bg-background px-4 py-16 md:py-24">
+        <section className="flex flex-col items-center gap-8 bg-[#1A1A1D] px-4 py-16 md:py-24">
           <div className="flex flex-col items-center gap-4">
-            <h1 className="max-w-3xl text-center text-4xl font-bold tracking-tighter text-foreground md:text-6xl">
+            <h1 className="max-w-3xl text-center text-4xl font-bold tracking-tighter text-white md:text-6xl">
               Decorative Concrete Services in Roundup, MT
             </h1>
-            <p className="max-w-2xl text-center text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="max-w-2xl text-center text-base leading-relaxed text-white/70 md:text-lg">
               We specialize in bringing artistic beauty and lasting strength to
               concrete surfaces across Roundup, MT. Transform ordinary driveways,
               patios, walkways, and floors into stunning custom designs that
@@ -153,17 +153,17 @@ export default function Roundup() {
         </section>
 
         {/* CTA banner */}
-        <section className="bg-primary px-4 py-16 md:py-24">
+        <section className="bg-[#1A1A1D] px-4 py-16 md:py-24">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
               Upgrade Your Roundup Space
             </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-primary-foreground/90">
+            <p className="max-w-2xl text-base leading-relaxed text-white/80">
               Improve your property's value and appeal. Call (406) 598-2444 to
               schedule your free consultation.
             </p>
             <a href="tel:+14065982444">
-              <Button size="lg" variant="secondary">
+              <Button size="lg">
                 <PhoneCall data-icon="inline-start" />
                 Schedule a Free Consultation
               </Button>

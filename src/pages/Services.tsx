@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building, Home, LayoutDashboard, PhoneCall, Shield, Sparkles, Truck } from "lucide-react";
+import { Building, Hop as Home, LayoutDashboard, PhoneCall, Shield, Sparkles, Truck } from "lucide-react";
 
 const services = [
   {
@@ -59,15 +59,15 @@ export default function Services() {
       business={{"name": "Artistic Decorative Concrete", "phone": "+1-406-598-2444", "address": {"addressLocality": "Billings", "addressRegion": "MT", "addressCountry": "US"}, "areaServed": [], "openingHours": []}}
     >
       {/* Hero */}
-      <section className="bg-background pt-12 md:pt-24 pb-16 md:pb-24">
+      <section className="bg-[#1A1A1D] pt-12 md:pt-24 pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           <Badge variant="secondary" className="mb-6">
             Concrete Contractors in Billings, MT
           </Badge>
-          <h1 className="text-4xl md:text-6xl tracking-tighter leading-none font-bold text-foreground max-w-4xl text-balance">
+          <h1 className="text-4xl md:text-6xl tracking-tighter leading-none font-bold text-white max-w-4xl text-balance">
             Complete Concrete Construction &amp; Decorative Services
           </h1>
-          <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-[65ch]">
+          <p className="mt-6 text-base md:text-lg text-white/70 leading-relaxed max-w-[65ch]">
             From stamped patios and driveways to strong foundations and retaining walls, we offer complete
             professional concrete services tailored to meet the functional and aesthetic needs of every property.
           </p>
@@ -108,17 +108,17 @@ export default function Services() {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-primary py-16 md:py-24">
+      <section className="bg-[#1A1A1D] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-          <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-bold text-primary-foreground max-w-2xl text-balance">
+          <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-bold text-white max-w-2xl text-balance">
             Let&apos;s Build Something That Lasts
           </h2>
-          <p className="mt-6 text-base text-primary-foreground/90 leading-relaxed max-w-[60ch]">
+          <p className="mt-6 text-base text-white/80 leading-relaxed max-w-[60ch]">
             Trust us to deliver lasting results with precision and craftsmanship. Get a free consultation by calling
             (406) 598-2444.
           </p>
           <a href="tel:+14065982444" className="mt-8">
-            <Button size="lg" variant="secondary">
+            <Button size="lg">
               <PhoneCall data-icon="inline-start" />
               Call (406) 598-2444
             </Button>

@@ -54,11 +54,11 @@ export default function Columbus() {
     >
       <section className="flex flex-col min-h-screen">
         {/* Hero */}
-        <section className="flex flex-col items-center justify-center px-4 py-16 md:py-24 text-center sm:px-6 lg:px-8">
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-balance sm:text-5xl md:text-6xl">
+        <section className="flex flex-col items-center justify-center px-4 py-16 md:py-24 text-center sm:px-6 lg:px-8 bg-[#1A1A1D]">
+          <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-balance text-white sm:text-5xl md:text-6xl">
             Decorative Concrete Services in Columbus, MT
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70">
             Looking for reliable and professional concrete services in Columbus,
             MT? Artistic Decorative Concrete is your local expert for
             high-quality decorative, stamped, and polished concrete solutions.
@@ -135,18 +135,18 @@ export default function Columbus() {
         </section>
 
         {/* CTA Banner */}
-        <section className="bg-primary px-4 py-16 sm:px-6 lg:px-8">
+        <section className="bg-[#1A1A1D] px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance text-primary-foreground">
+            <h2 className="text-3xl font-bold tracking-tight text-balance text-white">
               Enhance Your Columbus Property
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-primary-foreground/80">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/80">
               Get a custom quote for your concrete needs. Call (406) 598-2444
               today.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a href="tel:+14065982444">
-                <Button size="lg" variant="secondary">
+                <Button size="lg">
                   Get a Custom Quote
                 </Button>
               </a>
