@@ -4,15 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import {
-  CheckCircle2,
-  Home,
-  MapPin,
-  Phone,
-  Shield,
-  Sparkles,
-  Star,
-} from "lucide-react";
+import { CircleCheck as CheckCircle2, Hop as HomeIcon, MapPin, Phone, Shield, Sparkles, Star } from "lucide-react";
 
 const services = [
   {
@@ -25,7 +17,7 @@ const services = [
     title: "Driveways & Patios",
     description:
       "Attractive, long-lasting driveways and patios that boost property value and enhance curb appeal.",
-    icon: Home,
+    icon: HomeIcon,
   },
   {
     title: "Custom Concrete Solutions",
@@ -214,9 +206,6 @@ export default function Home() {
                     <div>
                       <p className="font-semibold text-foreground">
                         {testimonial.author}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonial.title}
                       </p>
                     </div>
                   </div>
