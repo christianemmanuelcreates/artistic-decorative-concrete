@@ -1,10 +1,28 @@
+import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
+import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { CircleCheck as CheckCircle2, Hop as HomeIcon, MapPin, Phone, Shield, Sparkles, Star } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import {
+  CircleCheck as CheckCircle2,
+  Hop as HomeIcon,
+  MapPin,
+  Phone,
+  Shield,
+  Sparkles,
+  Star,
+} from "lucide-react";
 
 const services = [
   {
@@ -66,7 +84,28 @@ const testimonials = [
   },
 ];
 
+const carouselSlides = [
+  { label: "Decorative Concrete", caption: "Custom decorative finishes" },
+  { label: "Stamped Patios", caption: "Stone and brick patterns" },
+  { label: "Driveways", caption: "Durable, crack-resistant pours" },
+  { label: "Foundations", caption: "Code-compliant structural support" },
+  { label: "Retaining Walls", caption: "Erosion control and landscape structure" },
+  { label: "Polished Concrete", caption: "Smooth, low-maintenance interiors" },
+];
+
 export default function Home() {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const interval = window.setInterval(() => {
+      carouselApi.scrollNext();
+    }, 4000);
+
+    return () => window.clearInterval(interval);
+  }, [carouselApi]);
+
   return (
     <Layout
       seo={{
@@ -78,8 +117,23 @@ export default function Home() {
         schemaTypes: ["LocalBusiness", "Organization", "WebSite", "BreadcrumbList"],
       }}
       hasLocalBusiness={true}
-      geo={{"region": "US-MT", "placename": "Billings", "latitude": 45.7833, "longitude": -108.5007}}
-      business={{"name": "Artistic Decorative Concrete", "phone": "+1-406-598-2444", "address": {"addressLocality": "Billings", "addressRegion": "MT", "addressCountry": "US"}, "areaServed": [], "openingHours": []}}
+      geo={{
+        region: "US-MT",
+        placename: "Billings",
+        latitude: 45.7833,
+        longitude: -108.5007,
+      }}
+      business={{
+        name: "Artistic Decorative Concrete",
+        phone: "+1-406-598-2444",
+        address: {
+          addressLocality: "Billings",
+          addressRegion: "MT",
+          addressCountry: "US",
+        },
+        areaServed: [],
+        openingHours: [],
+      }}
     >
       {/* Hero */}
       <section className="bg-[#1A1A1D] px-4 py-20 md:py-24">
@@ -103,6 +157,45 @@ export default function Home() {
                 Get Your Free Estimate
               </Button>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Photo Carousel */}
+      <section className="bg-background px-4 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+            <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
+              Our Project Gallery
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              A look at the decorative concrete work we deliver across Montana
+            </p>
+          </div>
+          <div className="mt-12">
+            <Carousel
+              opts={{ loop: true }}
+              setApi={setCarouselApi}
+              className="mx-auto max-w-4xl"
+            >
+              <CarouselContent>
+                {carouselSlides.map((slide) => (
+                  <CarouselItem key={slide.label}>
+                    <div className="flex flex-col gap-4">
+                      <ImagePlaceholder
+                        label={slide.label}
+                        aspectRatio="video"
+                      />
+                      <p className="text-center text-sm text-muted-foreground">
+                        {slide.caption}
+                      </p>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </div>
       </section>

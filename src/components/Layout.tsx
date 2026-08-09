@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SEOHead } from "@/components/SEOHead";
+import { LOCATIONS } from "@/data/locations";
 
 interface LayoutProps {
   children: ReactNode;
@@ -44,9 +45,7 @@ const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
-  { label: "Billings", href: "/billings" },
-  { label: "Laurel", href: "/laurel" },
-  { label: "Columbus", href: "/columbus" },
+  ...LOCATIONS.map((loc) => ({ label: loc.name, href: `/${loc.slug}` })),
 ];
 
 const NAV_CTA = { text: "Get a Free Estimate", href: "tel:+14065982444" };
@@ -58,11 +57,7 @@ const FOOTER_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
-  { label: "Billings", href: "/billings" },
-  { label: "Laurel", href: "/laurel" },
-  { label: "Columbus", href: "/columbus" },
-  { label: "Roundup", href: "/roundup" },
-  { label: "Forsyth", href: "/forsyth" },
+  ...LOCATIONS.map((loc) => ({ label: loc.name, href: `/${loc.slug}` })),
 ];
 
 const SITE_GEO = {
@@ -83,15 +78,7 @@ const SITE_BUSINESS = {
     addressRegion: "MT",
     addressCountry: "US",
   },
-  areaServed: [
-    { name: "Billings" },
-    { name: "Laurel" },
-    { name: "Columbus" },
-    { name: "Roundup" },
-    { name: "Huntley" },
-    { name: "Hardin" },
-    { name: "Forsyth" },
-  ],
+  areaServed: LOCATIONS.map((loc) => ({ name: loc.name })),
 };
 
 export default function Layout({ children, seo, hasLocalBusiness, geo, business }: LayoutProps) {
