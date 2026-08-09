@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Layers, MapPin, PhoneCall, RefreshCw, Shapes } from "lucide-react";
+import { Layers, MapPin, PhoneCall, RefreshCw, Shapes, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { LocationData } from "@/data/locations";
 
@@ -37,13 +36,13 @@ const services = [
   },
 ];
 
-const galleryLabels = [
-  "Stamped Patio",
-  "Polished Floor",
-  "Concrete Driveway",
-  "Retaining Wall",
-  "Decorative Finish",
-  "Project Showcase",
+const galleryImages = [
+  { src: "/images/services/stone_patio.jpg", caption: "Stone patio" },
+  { src: "/images/services/Stamped_concrete_compass.jpg", caption: "Stamped concrete inlay" },
+  { src: "/images/services/stone_driveway.jpg", caption: "Stone driveway" },
+  { src: "/images/services/firepit_active.jpg", caption: "Custom fire pit" },
+  { src: "/images/services/retaining_walls.jpeg", caption: "Retaining wall" },
+  { src: "/images/foundations/foundations.jpg", caption: "Foundation work" },
 ];
 
 interface ServiceAreaPageProps {
@@ -64,17 +63,23 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
     >
       <div className="flex flex-col">
         {/* Hero */}
-        <section className="flex flex-col items-center justify-center px-4 py-16 md:py-24 text-center sm:px-6 lg:px-8 bg-[#1A1A1D]">
+        <section className="flex flex-col items-center justify-center px-4 py-16 text-center sm:px-6 md:py-24 lg:px-8 bg-[#1A1A1D]">
           <Badge className="mb-6">Serving {location.name}, MT Since 2006</Badge>
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-balance text-white sm:text-5xl md:text-6xl">
+          <h1 className="max-w-3xl text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
             {location.heading}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
             {location.description}
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a href="tel:+14065982444">
+            <Link to="/contact">
               <Button size="lg">
+                <Sparkles data-icon="inline-start" />
+                Get Your Free Estimate
+              </Button>
+            </Link>
+            <a href="tel:+14065982444">
+              <Button size="lg" variant="secondary">
                 <PhoneCall data-icon="inline-start" />
                 Call (406) 598-2444
               </Button>
@@ -124,8 +129,20 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
               A showcase of decorative concrete projects completed in and around {location.name}, MT.
             </p>
             <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {galleryLabels.map((label) => (
-                <ImagePlaceholder key={label} label={label} aspectRatio="video" />
+              {galleryImages.map((image) => (
+                <figure key={image.src} className="flex flex-col gap-2">
+                  <div className="overflow-hidden rounded-lg">
+                    <img
+                      src={image.src}
+                      alt={image.caption}
+                      loading="lazy"
+                      className="aspect-video w-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                  <figcaption className="text-sm text-muted-foreground">
+                    {image.caption}
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </div>
@@ -171,10 +188,16 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
               {location.ctaDescription}
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a href="tel:+14065982444">
+              <Link to="/contact">
                 <Button size="lg">
+                  <Sparkles data-icon="inline-start" />
+                  Get Your Free Estimate
+                </Button>
+              </Link>
+              <a href="tel:+14065982444">
+                <Button size="lg" variant="secondary">
                   <PhoneCall data-icon="inline-start" />
-                  {location.ctaButton}
+                  Call (406) 598-2444
                 </Button>
               </a>
             </div>

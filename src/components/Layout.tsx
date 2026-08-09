@@ -48,7 +48,7 @@ const NAV_ITEMS = [
   ...LOCATIONS.map((loc) => ({ label: loc.name, href: `/${loc.slug}` })),
 ];
 
-const NAV_CTA = { text: "Get a Free Estimate", href: "tel:+14065982444" };
+const NAV_CTA = { text: "Get a Free Estimate", href: "/contact" };
 
 const FOOTER_DESCRIPTION =
   "Artistic Decorative Concrete provides expert decorative concrete, flatwork, and foundations in Billings, MT and surrounding areas. Serving Montana since 2006.";
@@ -62,22 +62,46 @@ const FOOTER_LINKS = [
 
 const SITE_GEO = {
   region: "US-MT",
-  placename: "Billings",
-  latitude: 45.7833,
-  longitude: -108.5007,
+  placename: "Laurel",
+  latitude: 45.6666,
+  longitude: -108.7719,
 };
 
 const HAS_LOCAL_BUSINESS = true;
+
+const SOCIAL_LINKS = [
+  "https://www.facebook.com/people/Artistic-Decorative-Concrete/61555235653912/",
+  "https://www.yelp.com/biz/artistic-decorative-concrete-laurel",
+  "https://share.google/u8u46DlI07uhgJnWy",
+];
 
 const SITE_BUSINESS = {
   name: BUSINESS_NAME,
   url: SITE_URL,
   phone: "+1-406-598-2444",
+  sameAs: SOCIAL_LINKS,
   address: {
-    addressLocality: "Billings",
+    streetAddress: "3100 S Park City Rd",
+    addressLocality: "Laurel",
     addressRegion: "MT",
+    postalCode: "59044",
     addressCountry: "US",
   },
+  openingHours: [
+    {
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
+    },
+  ],
   areaServed: LOCATIONS.map((loc) => ({ name: loc.name })),
 };
 

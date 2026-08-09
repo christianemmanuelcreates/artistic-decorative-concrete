@@ -17,9 +17,15 @@ import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { NativeSelect } from "@/components/ui/native-select";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, Send, Share2 } from "lucide-react";
 
-const SERVICE_AREAS = ["Billings", "Laurel", "Columbus", "Roundup", "Huntley", "Hardin", "Forsyth"];
+const SERVICE_AREAS = ["Billings", "Laurel", "Columbus", "Roundup", "Huntley", "Hardin", "Forsyth", "Red Lodge", "Absarokee", "Miles City", "Big Timber", "Belfry", "Bridger"];
+
+const SOCIAL_LINKS = [
+  { label: "Facebook", href: "https://www.facebook.com/people/Artistic-Decorative-Concrete/61555235653912/" },
+  { label: "Yelp", href: "https://www.yelp.com/biz/artistic-decorative-concrete-laurel" },
+  { label: "Google Business", href: "https://share.google/u8u46DlI07uhgJnWy" },
+];
 
 function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
@@ -116,7 +122,7 @@ export default function Contact() {
       }}
       hasLocalBusiness={true}
       geo={{"region": "US-MT", "placename": "Billings", "latitude": 45.7833, "longitude": -108.5007}}
-      business={{"name": "Artistic Decorative Concrete", "phone": "+1-406-598-2444", "address": {"addressLocality": "Billings", "addressRegion": "MT", "addressCountry": "US"}, "areaServed": [], "openingHours": []}}
+      business={{"name": "Artistic Decorative Concrete", "phone": "+1-406-598-2444", "address": {"streetAddress": "3100 S Park City Rd", "addressLocality": "Laurel", "addressRegion": "MT", "postalCode": "59044", "addressCountry": "US"}, "sameAs": ["https://www.facebook.com/people/Artistic-Decorative-Concrete/61555235653912/", "https://www.yelp.com/biz/artistic-decorative-concrete-laurel", "https://share.google/u8u46DlI07uhgJnWy"], "openingHours": [{"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59"}], "areaServed": []}}
     >
       <section className="flex flex-col">
         {/* Hero */}
@@ -216,6 +222,24 @@ export default function Contact() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <MapPin className="size-5 text-primary" aria-hidden="true" />
+                    Address
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <a
+                    href="https://maps.google.com/?q=3100+S+Park+City+Rd,+Laurel,+MT+59044"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    3100 S Park City Rd, Laurel, MT 59044, United States
+                  </a>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <MapPin className="size-5 text-primary" aria-hidden="true" />
                     Service Areas
                   </CardTitle>
                 </CardHeader>
@@ -225,6 +249,40 @@ export default function Contact() {
                       <Badge key={city} variant="secondary">
                         {city}
                       </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Clock className="size-5 text-primary" aria-hidden="true" />
+                    Hours
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Open 24 hours</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Share2 className="size-5 text-primary" aria-hidden="true" />
+                    Find Us Online
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-col gap-2">
+                    {SOCIAL_LINKS.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {social.label}
+                      </a>
                     ))}
                   </div>
                 </CardContent>

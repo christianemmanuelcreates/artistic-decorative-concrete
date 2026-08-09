@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -85,12 +85,14 @@ const testimonials = [
 ];
 
 const carouselSlides = [
-  { label: "Decorative Concrete", caption: "Custom decorative finishes" },
-  { label: "Stamped Patios", caption: "Stone and brick patterns" },
-  { label: "Driveways", caption: "Durable, crack-resistant pours" },
-  { label: "Foundations", caption: "Code-compliant structural support" },
-  { label: "Retaining Walls", caption: "Erosion control and landscape structure" },
-  { label: "Polished Concrete", caption: "Smooth, low-maintenance interiors" },
+  { src: "/images/services/stone_patio.jpg", caption: "Custom stone patio" },
+  { src: "/images/services/Stamped_concrete_compass.jpg", caption: "Stamped concrete inlay" },
+  { src: "/images/services/stone_driveway.jpg", caption: "Stone driveway installation" },
+  { src: "/images/services/firepit_active.jpg", caption: "Custom fire pit" },
+  { src: "/images/services/retaining_walls.jpeg", caption: "Retaining wall construction" },
+  { src: "/images/foundations/foundations.jpg", caption: "Foundation pour" },
+  { src: "/images/services/stone_water_fountain.jpg", caption: "Decorative water feature" },
+  { src: "/images/services/stone_courtyard.jpg", caption: "Stone courtyard finish" },
 ];
 
 export default function Home() {
@@ -150,11 +152,17 @@ export default function Home() {
           <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-white/70">
             Serving Montana since 2006, we transform old and new concrete surfaces into attractive, long-lasting features for residential and commercial properties.
           </p>
-          <div className="mt-8">
-            <a href="tel:+14065982444">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link to="/contact">
               <Button size="lg">
-                <Phone data-icon="inline-start" />
+                <Sparkles data-icon="inline-start" />
                 Get Your Free Estimate
+              </Button>
+            </Link>
+            <a href="tel:+14065982444">
+              <Button size="lg" variant="secondary">
+                <Phone data-icon="inline-start" />
+                Call (406) 598-2444
               </Button>
             </a>
           </div>
@@ -180,12 +188,16 @@ export default function Home() {
             >
               <CarouselContent>
                 {carouselSlides.map((slide) => (
-                  <CarouselItem key={slide.label}>
+                  <CarouselItem key={slide.src}>
                     <div className="flex flex-col gap-4">
-                      <ImagePlaceholder
-                        label={slide.label}
-                        aspectRatio="video"
-                      />
+                      <div className="overflow-hidden rounded-lg">
+                        <img
+                          src={slide.src}
+                          alt={slide.caption}
+                          loading="lazy"
+                          className="aspect-video w-full object-cover"
+                        />
+                      </div>
                       <p className="text-center text-sm text-muted-foreground">
                         {slide.caption}
                       </p>
@@ -325,9 +337,15 @@ export default function Home() {
             </a>{" "}
             to get started.
           </p>
-          <div className="mt-8">
-            <a href="tel:+14065982444">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link to="/contact">
               <Button size="lg">
+                <Sparkles data-icon="inline-start" />
+                Get Your Free Estimate
+              </Button>
+            </Link>
+            <a href="tel:+14065982444">
+              <Button size="lg" variant="secondary">
                 <Phone data-icon="inline-start" />
                 Call (406) 598-2444
               </Button>

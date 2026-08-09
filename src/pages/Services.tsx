@@ -1,113 +1,75 @@
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Building,
-  Hop as Home,
-  LayoutDashboard,
-  PhoneCall,
-  Shield,
-  Sparkles,
-  Truck,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Phone, Sparkles } from "lucide-react";
 
-interface ServiceDetail {
+interface ServiceCategory {
   title: string;
-  icon: LucideIcon;
   summary: string;
-  description: string;
-  benefits: string[];
-  galleryLabels: string[];
+  images: { src: string; caption: string }[];
 }
 
-const services: ServiceDetail[] = [
+const categories: ServiceCategory[] = [
   {
-    title: "Concrete Flat Work",
-    icon: LayoutDashboard,
+    title: "Decorative & Stamped Concrete",
     summary:
-      "High-quality concrete flatwork for driveways, patios, and walkways designed for durability, clean finishes, and long-term performance.",
-    description:
-      "Concrete flatwork forms the foundation of most outdoor surfaces — driveways, patios, walkways, and sidewalks. We pour and finish every slab with attention to proper grading, reinforcement, and joint placement so the surface resists cracking and holds up through Montana's freeze-thaw cycles. The result is a clean, level finish that performs for decades.",
-    benefits: [
-      "Proper grading and site preparation for drainage",
-      "Reinforced concrete to resist cracking and shifting",
-      "Clean, level finishes suitable for any property",
+      "Custom stamped and decorative concrete that replicates the look of natural stone, brick, or slate. Sealed for UV and weather resistance, and built to handle Montana's freeze-thaw cycles.",
+    images: [
+      { src: "/images/services/Stamped_concrete_compass.jpg", caption: "Stamped concrete compass inlay" },
+      { src: "/images/services/stone_patio_floor.jpeg", caption: "Decorative stone patio floor" },
+      { src: "/images/services/stone_entry_patio.jpeg", caption: "Stone entry patio" },
     ],
-    galleryLabels: ["Driveway Pour", "Patio Finish", "Walkway Detail", "Flatwork Showcase"],
   },
   {
-    title: "Stamped Concrete",
-    icon: Sparkles,
+    title: "Patios, Driveways & Flatwork",
     summary:
-      "Decorative stamped concrete that mimics stone, brick, or wood, offering beauty and low-maintenance charm year-round.",
-    description:
-      "Stamped concrete lets you achieve the look of natural stone, brick, slate, or wood at a fraction of the cost. We press texture mats into freshly poured concrete and apply integral and release colors to create rich, realistic patterns. A penetrating sealer locks in the color and protects against wear, UV, and weather — giving you a surface that stays beautiful with minimal upkeep.",
-    benefits: [
-      "Replicates premium materials like stone, slate, and wood",
-      "Integral color and release agents for rich, lasting tones",
-      "Sealed surface resists UV, weather, and wear",
+      "Driveways, patios, walkways, and sidewalks poured and finished with attention to grading, reinforcement, and joint placement. Clean, level surfaces that perform for decades.",
+    images: [
+      { src: "/images/services/concrete_flatwork.jpeg", caption: "Concrete flatwork" },
+      { src: "/images/services/stone_driveway.jpg", caption: "Stone driveway" },
+      { src: "/images/services/Concrete_walkway_side.jpg", caption: "Concrete walkway" },
     ],
-    galleryLabels: ["Stamped Patio", "Stone Pattern", "Brick Texture", "Stamped Walkway"],
+  },
+  {
+    title: "Stone Work & Outdoor Features",
+    summary:
+      "Custom stone patios, courtyards, walkways, fire pits, and water features that shape your landscape and add lasting visual structure to your property.",
+    images: [
+      { src: "/images/services/stone_courtyard.jpg", caption: "Stone courtyard" },
+      { src: "/images/services/firepit_active.jpg", caption: "Active fire pit" },
+      { src: "/images/services/stone_water_fountain.jpg", caption: "Stone water fountain" },
+    ],
   },
   {
     title: "Retaining Walls",
-    icon: Shield,
     summary:
-      "Durable, custom-designed retaining walls that prevent erosion, manage elevation changes, and add structure and beauty to your outdoor space.",
-    description:
-      "Retaining walls do more than hold back soil — they shape your landscape. We build walls that manage elevation changes, control drainage, and prevent erosion while adding clean visual structure to your property. Whether you need a small garden wall or a tall structural wall, we engineer each one to handle the load and stand up to the elements.",
-    benefits: [
-      "Engineered to handle soil pressure and drainage",
-      "Prevents erosion and manages elevation changes",
-      "Adds structure and visual appeal to landscapes",
+      "Retaining walls engineered to handle soil pressure and drainage, preventing erosion while adding clean visual structure to your landscape.",
+    images: [
+      { src: "/images/services/retaining_walls.jpeg", caption: "Retaining wall" },
+      { src: "/images/services/stone_walkway_treepit.jpg", caption: "Stone walkway with tree pit" },
+      { src: "/images/services/stone_work.jpg", caption: "Stone work detail" },
     ],
-    galleryLabels: ["Garden Wall", "Structural Wall", "Tiered Landscape", "Wall Detail"],
   },
   {
-    title: "Foundations",
-    icon: Home,
+    title: "Foundations & Slab on Grade",
     summary:
-      "Durable, level, and code-compliant foundations that provide lasting structural support for homes, garages, and commercial buildings.",
-    description:
-      "A solid foundation is the most important part of any structure. We pour footings and foundation walls that are level, properly reinforced, and built to local code. From residential homes and garages to light commercial buildings, our foundations provide the stable, long-lasting base your structure depends on.",
-    benefits: [
-      "Code-compliant footings and walls",
-      "Properly reinforced for structural integrity",
-      "Suitable for homes, garages, and commercial builds",
+      "Code-compliant footings, foundation walls, and slab-on-grade construction for homes, garages, and light commercial buildings. Proper reinforcement and vapor barriers throughout.",
+    images: [
+      { src: "/images/foundations/foundations.jpg", caption: "Foundation pour" },
+      { src: "/images/foundations/slab_on_grade.jpeg", caption: "Slab on grade" },
     ],
-    galleryLabels: ["Footing Pour", "Foundation Wall", "Slab Foundation", "Foundation Detail"],
   },
-  {
-    title: "Slab on Grade",
-    icon: Building,
-    summary:
-      "Stable, moisture-resistant foundations ideal for residential homes, garages, and light commercial buildings.",
-    description:
-      "Slab-on-grade construction places a single concrete slab directly on prepared ground, creating a stable, moisture-resistant base. It is a cost-effective choice for homes, garages, shops, and light commercial buildings where a full basement is not needed. We handle site prep, vapor barriers, reinforcement, and finishing to deliver a slab that performs.",
-    benefits: [
-      "Cost-effective alternative to full foundations",
-      "Moisture-resistant with proper vapor barriers",
-      "Ideal for garages, shops, and light commercial builds",
-    ],
-    galleryLabels: ["Slab Pour", "Garage Slab", "Vapor Barrier", "Finished Slab"],
-  },
-  {
-    title: "Excavation Services",
-    icon: Truck,
-    summary:
-      "Precise grading, trenching, and site preparation for concrete installations, foundations, and landscaping, ensuring a strong base for your project.",
-    description:
-      "Before any concrete goes in, the ground has to be right. We provide grading, trenching, and site preparation so your concrete installation, foundation, or landscape starts from a solid base. Proper excavation prevents settling, drainage issues, and structural problems down the line.",
-    benefits: [
-      "Precise grading for proper drainage",
-      "Trenching for utilities and footings",
-      "Site prep that prevents settling and structural issues",
-    ],
-    galleryLabels: ["Site Grading", "Trenching", "Site Prep", "Excavation Detail"],
-  },
+];
+
+const showcaseImages = [
+  { src: "/images/services/stone_patio.jpg", caption: "Stone patio" },
+  { src: "/images/services/fire_pit_waterfall.jpg", caption: "Fire pit with waterfall" },
+  { src: "/images/services/stone_table.jpg", caption: "Stone table" },
+  { src: "/images/services/water_feature.jpg", caption: "Water feature" },
+  { src: "/images/services/image000008.JPG", caption: "Project showcase" },
+  { src: "/images/services/stone_driveway.jpg", caption: "Stone driveway" },
 ];
 
 export default function Services() {
@@ -137,92 +99,88 @@ export default function Services() {
             complete professional concrete services tailored to meet the functional and aesthetic
             needs of every property.
           </p>
-          <a href="tel:+14065982444" className="mt-8">
-            <Button size="lg">
-              <PhoneCall data-icon="inline-start" />
-              Get a Free Consultation
-            </Button>
-          </a>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link to="/contact">
+              <Button size="lg">
+                <Sparkles data-icon="inline-start" />
+                Get Your Free Estimate
+              </Button>
+            </Link>
+            <a href="tel:+14065982444">
+              <Button size="lg" variant="secondary">
+                <Phone data-icon="inline-start" />
+                Call (406) 598-2444
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Service overview cards */}
+      {/* Service categories with photos */}
+      <section className="bg-background py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-16 md:gap-24">
+          {categories.map((category) => (
+            <div key={category.title} className="flex flex-col gap-6">
+              <div className="max-w-2xl">
+                <h2 className="text-2xl md:text-3xl tracking-tighter leading-none font-bold text-foreground">
+                  {category.title}
+                </h2>
+                <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+                  {category.summary}
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {category.images.map((image) => (
+                  <figure key={image.src} className="flex flex-col gap-2">
+                    <div className="overflow-hidden rounded-lg">
+                      <img
+                        src={image.src}
+                        alt={image.caption}
+                        loading="lazy"
+                        className="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-105"
+                      />
+                    </div>
+                    <figcaption className="text-sm text-muted-foreground">
+                      {image.caption}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Showcase gallery */}
       <section className="bg-muted py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
-          <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-bold text-foreground">
-            Our Core Concrete Solutions
-          </h2>
-          <p className="mt-4 text-base text-muted-foreground leading-relaxed max-w-[65ch]">
-            Complete professional concrete services tailored to meet the functional and aesthetic
-            needs of every property.
-          </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <Card
-                key={service.title}
-                className="h-full transition-all duration-200 ease-in-out hover:shadow-md"
-              >
-                <CardHeader className="gap-4">
-                  <service.icon className="size-8 text-primary" aria-hidden="true" />
-                  <CardTitle>{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">{service.summary}</p>
-                </CardContent>
-              </Card>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center mb-12">
+            <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-bold text-foreground">
+              Project Showcase
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground max-w-[65ch]">
+              A selection of completed work across Montana
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {showcaseImages.map((image) => (
+              <figure key={image.src} className="flex flex-col gap-2">
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    src={image.src}
+                    alt={image.caption}
+                    loading="lazy"
+                    className="aspect-square w-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <figcaption className="text-sm text-muted-foreground">
+                  {image.caption}
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Detailed service sections with galleries */}
-      {services.map((service, index) => (
-        <section
-          key={service.title}
-          className={index % 2 === 0 ? "bg-background py-16 md:py-24" : "bg-muted py-16 md:py-24"}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-              <div className="flex flex-col gap-4">
-                <div className="flex size-14 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <service.icon className="size-7" aria-hidden="true" />
-                </div>
-                <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-bold text-foreground">
-                  {service.title}
-                </h2>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-                <ul className="mt-2 flex flex-col gap-2">
-                  {service.benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-start gap-2 text-sm text-foreground">
-                      <span
-                        className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary"
-                        aria-hidden="true"
-                      />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4">
-                  <a href="tel:+14065982444">
-                    <Button>
-                      <PhoneCall data-icon="inline-start" />
-                      Get a Free Estimate
-                    </Button>
-                  </a>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {service.galleryLabels.map((label) => (
-                  <ImagePlaceholder key={label} label={label} aspectRatio="square" />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      ))}
 
       {/* CTA Banner */}
       <section className="bg-[#1A1A1D] py-16 md:py-24">
@@ -231,15 +189,22 @@ export default function Services() {
             Let&apos;s Build Something That Lasts
           </h2>
           <p className="mt-6 text-base text-white/80 leading-relaxed max-w-[60ch]">
-            Trust us to deliver lasting results with precision and craftsmanship. Get a free
-            consultation by calling (406) 598-2444.
+            Trust us to deliver lasting results with precision and craftsmanship. Get your free estimate today.
           </p>
-          <a href="tel:+14065982444" className="mt-8">
-            <Button size="lg">
-              <PhoneCall data-icon="inline-start" />
-              Call (406) 598-2444
-            </Button>
-          </a>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link to="/contact">
+              <Button size="lg">
+                <Sparkles data-icon="inline-start" />
+                Get Your Free Estimate
+              </Button>
+            </Link>
+            <a href="tel:+14065982444">
+              <Button size="lg" variant="secondary">
+                <Phone data-icon="inline-start" />
+                Call (406) 598-2444
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
     </Layout>
