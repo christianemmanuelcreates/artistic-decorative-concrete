@@ -16,51 +16,16 @@ import {
 } from "@/components/ui/carousel";
 import {
   CircleCheck as CheckCircle2,
-  Hop as HomeIcon,
-  MapPin,
   Phone,
-  Shield,
   Sparkles,
   Star,
 } from "lucide-react";
-
-const services = [
-  {
-    title: "Decorative Concrete",
-    description:
-      "Custom decorative concrete that combines the strength of cement with the durability and bonding power of acrylics.",
-    icon: Sparkles,
-  },
-  {
-    title: "Driveways & Patios",
-    description:
-      "Attractive, long-lasting driveways and patios that boost property value and enhance curb appeal.",
-    icon: HomeIcon,
-  },
-  {
-    title: "Custom Concrete Solutions",
-    description:
-      "Cost-effective solutions finished with a penetrating sealer for superb weather and UV resistance.",
-    icon: Shield,
-  },
-];
+import { SERVICES, SHOWCASE_IMAGES } from "@/data/services";
 
 const stats = [
-  {
-    value: "20+",
-    label: "Years of Industry Experience",
-    icon: Star,
-  },
-  {
-    value: "100%",
-    label: "Custom Concrete Solutions",
-    icon: CheckCircle2,
-  },
-  {
-    value: "2006",
-    label: "Serving Montana Since 2006",
-    icon: MapPin,
-  },
+  { value: "20+", label: "Years of Industry Experience", icon: Star },
+  { value: "100%", label: "Custom Concrete Solutions", icon: CheckCircle2 },
+  { value: "2006", label: "Serving Montana Since 2006", icon: Sparkles },
 ];
 
 const testimonials = [
@@ -84,27 +49,14 @@ const testimonials = [
   },
 ];
 
-const carouselSlides = [
-  { src: "/images/services/stone_patio.jpg", caption: "Custom stone patio" },
-  { src: "/images/services/Stamped_concrete_compass.jpg", caption: "Stamped concrete inlay" },
-  { src: "/images/services/stone_driveway.jpg", caption: "Stone driveway installation" },
-  { src: "/images/services/firepit_active.jpg", caption: "Custom fire pit" },
-  { src: "/images/services/retaining_walls.jpeg", caption: "Retaining wall construction" },
-  { src: "/images/foundations/foundations.jpg", caption: "Foundation pour" },
-  { src: "/images/services/stone_water_fountain.jpg", caption: "Decorative water feature" },
-  { src: "/images/services/stone_courtyard.jpg", caption: "Stone courtyard finish" },
-];
-
 export default function Home() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
   useEffect(() => {
     if (!carouselApi) return;
-
     const interval = window.setInterval(() => {
       carouselApi.scrollNext();
     }, 4000);
-
     return () => window.clearInterval(interval);
   }, [carouselApi]);
 
@@ -138,7 +90,7 @@ export default function Home() {
       }}
     >
       {/* Hero */}
-      <section className="bg-[#1A1A1D] px-4 py-20 md:py-24">
+      <section className="bg-[#1A1A1D] px-4 py-16 md:py-20">
         <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
           <Badge variant="secondary" className="mb-6">
             Serving Montana Since 2006
@@ -169,36 +121,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Photo Carousel */}
-      <section className="bg-background px-4 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
+      {/* Compact Photo Carousel */}
+      <section className="bg-background px-4 py-10 md:py-14">
+        <div className="mx-auto max-w-5xl">
+          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+            <h2 className="text-balance text-2xl font-bold leading-tight tracking-tighter text-foreground md:text-3xl">
               Our Project Gallery
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-2 text-sm text-muted-foreground md:text-base">
               A look at the decorative concrete work we deliver across Montana
             </p>
           </div>
-          <div className="mt-12">
+          <div className="mt-6">
             <Carousel
               opts={{ loop: true }}
               setApi={setCarouselApi}
-              className="mx-auto max-w-4xl"
+              className="mx-auto max-w-3xl"
             >
               <CarouselContent>
-                {carouselSlides.map((slide) => (
-                  <CarouselItem key={slide.src}>
-                    <div className="flex flex-col gap-4">
+                {SHOWCASE_IMAGES.map((slide) => (
+                  <CarouselItem key={slide.src} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="flex flex-col gap-2">
                       <div className="overflow-hidden rounded-lg">
                         <img
                           src={slide.src}
                           alt={slide.caption}
                           loading="lazy"
-                          className="aspect-video w-full object-cover"
+                          className="aspect-[4/3] w-full object-cover"
                         />
                       </div>
-                      <p className="text-center text-sm text-muted-foreground">
+                      <p className="text-center text-xs text-muted-foreground">
                         {slide.caption}
                       </p>
                     </div>
@@ -213,7 +165,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="bg-muted px-4 py-16 md:py-24">
+      <section className="bg-muted px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
@@ -222,37 +174,46 @@ export default function Home() {
             <p className="mt-4 text-lg text-muted-foreground">
               Upscale decorative concrete for residential and commercial properties
             </p>
-            <p className="mt-4 max-w-[65ch] leading-relaxed text-muted-foreground">
-              Artistic Decorative Concrete creates an upscale look with decorative concrete, driveways, and patios. Our experienced team offers cost-effective, custom concrete solutions that boost property value, enhance curb appeal, and ensure lasting strength.
-            </p>
           </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {services.map((service) => (
-              <Card key={service.title} className="h-full">
-                <CardHeader className="flex flex-col items-start gap-4">
-                  <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <service.icon className="size-6" aria-hidden="true" />
-                  </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {SERVICES.map((service) => (
+              <Card key={service.slug} className="h-full overflow-hidden">
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <CardHeader className="gap-2">
+                  <CardTitle className="text-lg">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
                 </CardContent>
               </Card>
             ))}
           </div>
+          <div className="mt-10 text-center">
+            <Link to="/services">
+              <Button size="lg" variant="outline">
+                View All Services
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="bg-card px-4 py-16 md:py-24">
+      <section className="bg-card px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-center text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
             By the Numbers
           </h2>
-          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center text-center">
                 <div className="flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
@@ -269,7 +230,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-background px-4 py-16 md:py-24">
+      <section className="bg-background px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col items-center text-center">
             <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
@@ -279,7 +240,7 @@ export default function Home() {
               Hear from property owners across Billings who trusted us with their concrete projects.
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
             {testimonials.map((testimonial) => (
               <Card key={testimonial.author} className="h-full">
                 <CardHeader>
@@ -322,7 +283,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#1A1A1D] px-4 py-16 text-white md:py-20">
+      <section className="bg-[#1A1A1D] px-4 py-14 text-white md:py-20">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-white md:text-4xl">
             Ready to Enhance Your Property?

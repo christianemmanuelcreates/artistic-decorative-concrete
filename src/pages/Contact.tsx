@@ -125,67 +125,58 @@ export default function Contact() {
       business={{"name": "Artistic Decorative Concrete", "phone": "+1-406-598-2444", "address": {"streetAddress": "3100 S Park City Rd", "addressLocality": "Laurel", "addressRegion": "MT", "postalCode": "59044", "addressCountry": "US"}, "sameAs": ["https://www.facebook.com/people/Artistic-Decorative-Concrete/61555235653912/", "https://www.yelp.com/biz/artistic-decorative-concrete-laurel", "https://share.google/u8u46DlI07uhgJnWy"], "openingHours": [{"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59"}], "areaServed": []}}
     >
       <section className="flex flex-col">
-        {/* Hero */}
-        <section className="flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-12 md:pb-16 bg-[#1A1A1D]">
-          <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-            <h1 className="text-4xl md:text-6xl tracking-tighter leading-none text-pretty max-w-[20ch] text-white">
-              Contact Artistic Decorative Concrete
-            </h1>
-            <p className="text-lg text-white/70 leading-relaxed max-w-[65ch]">
-              Get in touch with us for trusted concrete services, patios, and driveways with
-              guaranteed quality and honest workmanship. We look forward to helping you with your
-              next residential or commercial project.
-            </p>
-            <a href="tel:+14065982444">
-              <Button size="lg">
-                <Phone data-icon="inline-start" />
-                Call (406) 598-2444
-              </Button>
-            </a>
-          </div>
-        </section>
-
-        {/* Contact form - split layout */}
-        <section className="py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-            <div className="flex flex-col gap-6">
-              <h2 className="text-3xl md:text-4xl tracking-tighter leading-none text-balance">
+        {/* Compact hero + form above the fold */}
+        <section className="bg-[#1A1A1D] px-4 sm:px-6 lg:px-8 pt-10 pb-10 md:pt-14 md:pb-14">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <div className="flex flex-col gap-4 text-center lg:text-left">
+              <h1 className="text-3xl md:text-4xl tracking-tighter leading-none text-balance text-white">
                 Request Your Free Estimate
-              </h2>
-              <p className="text-muted-foreground leading-relaxed max-w-[60ch]">
-                Ready to upgrade your home or business with decorative concrete? Call us at (406)
-                598-2444 to schedule your free estimate.
+              </h1>
+              <p className="text-sm md:text-base text-white/70 leading-relaxed max-w-[55ch] mx-auto lg:mx-0">
+                Tell us about your project and we will get back to you within one business day. Call{" "}
+                <a href="tel:+14065982444" className="underline underline-offset-4 text-white">
+                  (406) 598-2444
+                </a>{" "}
+                or fill out the form.
               </p>
-              <Alert>
-                <MapPin className="size-4" aria-hidden="true" />
-                <AlertTitle>Areas We Serve</AlertTitle>
-                <AlertDescription>
-                  We serve Billings, Laurel, Columbus, Roundup, Huntley, Hardin, and Forsyth, MT.
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <a href="tel:+14065982444">
+                  <Button size="lg" variant="secondary">
+                    <Phone data-icon="inline-start" />
+                    Call (406) 598-2444
+                  </Button>
+                </a>
+                <a href="mailto:chuckyoung1970@gmail.com">
+                  <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
+                    <Mail data-icon="inline-start" />
+                    Email Us
+                  </Button>
+                </a>
+              </div>
+              <Alert className="mt-2 bg-white/5 border-white/10">
+                <MapPin className="size-4 text-white/70" aria-hidden="true" />
+                <AlertTitle className="text-white">Areas We Serve</AlertTitle>
+                <AlertDescription className="text-white/70">
+                  We serve Billings, Laurel, Columbus, Roundup, Huntley, Hardin, Forsyth, and surrounding Montana communities.
                 </AlertDescription>
               </Alert>
-              <a href="tel:+14065982444">
-                <Button size="lg" variant="secondary">
-                  <Phone data-icon="inline-start" />
-                  Call (406) 598-2444
-                </Button>
-              </a>
             </div>
             <ContactForm />
           </div>
         </section>
 
         {/* Business information */}
-        <section className="py-16 md:py-24 bg-muted">
+        <section className="py-12 md:py-16 bg-muted">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-4 max-w-2xl">
-              <h2 className="text-3xl md:text-4xl tracking-tighter leading-none">
+            <div className="flex flex-col gap-2 max-w-2xl mb-8">
+              <h2 className="text-2xl md:text-3xl tracking-tighter leading-none">
                 Business Information
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Reach us by phone, email, or through any of our service areas across Montana.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -196,7 +187,7 @@ export default function Contact() {
                 <CardContent>
                   <a
                     href="tel:+14065982444"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     (406) 598-2444
                   </a>
@@ -212,7 +203,7 @@ export default function Contact() {
                 <CardContent>
                   <a
                     href="mailto:chuckyoung1970@gmail.com"
-                    className="text-muted-foreground hover:text-foreground transition-colors break-all"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors break-all"
                   >
                     chuckyoung1970@gmail.com
                   </a>
@@ -230,9 +221,9 @@ export default function Contact() {
                     href="https://maps.google.com/?q=3100+S+Park+City+Rd,+Laurel,+MT+59044"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    3100 S Park City Rd, Laurel, MT 59044, United States
+                    3100 S Park City Rd, Laurel, MT 59044
                   </a>
                 </CardContent>
               </Card>
@@ -261,7 +252,7 @@ export default function Contact() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">Open 24 hours</p>
+                  <p className="text-sm text-muted-foreground">Open 24 hours</p>
                 </CardContent>
               </Card>
               <Card>
@@ -279,7 +270,7 @@ export default function Contact() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {social.label}
                       </a>
