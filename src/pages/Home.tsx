@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
+import ContactForm from "@/components/ContactForm";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -90,33 +91,57 @@ export default function Home() {
       }}
     >
       {/* Hero */}
-      <section className="bg-[#1A1A1D] px-4 py-16 md:py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
-          <Badge variant="secondary" className="mb-6">
-            Serving Montana Since 2006
-          </Badge>
-          <h1 className="max-w-4xl text-balance text-4xl font-bold leading-none tracking-tighter text-white md:text-6xl">
-            Artistic Decorative Concrete in Billings, MT
-          </h1>
-          <p className="mt-6 max-w-[65ch] text-lg leading-relaxed text-white/70">
-            Expert decorative concrete solutions, flatwork, and foundations in Billings, MT and the surrounding areas.
-          </p>
-          <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-white/70">
-            Serving Montana since 2006, we transform old and new concrete surfaces into attractive, long-lasting features for residential and commercial properties.
-          </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link to="/contact">
-              <Button size="lg">
-                <Sparkles data-icon="inline-start" />
-                Get Your Free Estimate
-              </Button>
-            </Link>
-            <a href="tel:+14065982444">
-              <Button size="lg" variant="secondary">
-                <Phone data-icon="inline-start" />
-                Call (406) 598-2444
-              </Button>
-            </a>
+      <section className="relative overflow-hidden">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/services/Stamped_concrete_compass.jpg')" }}
+          aria-hidden="true"
+        />
+        {/* Dark gradient overlay: strong on left for text, lighter on right for form */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(26,26,29,0.92) 0%, rgba(26,26,29,0.82) 35%, rgba(26,26,29,0.55) 60%, rgba(26,26,29,0.35) 100%)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 py-16 md:py-24 lg:grid-cols-2 lg:gap-12">
+          {/* Left: text content */}
+          <div className="flex flex-col items-start text-left">
+            <Badge variant="secondary" className="mb-6">
+              Serving Montana Since 2006
+            </Badge>
+            <h1 className="max-w-2xl text-balance text-4xl font-bold leading-none tracking-tighter text-white md:text-5xl lg:text-6xl">
+              Artistic Decorative Concrete in Billings, MT
+            </h1>
+            <p className="mt-6 max-w-[55ch] text-lg leading-relaxed text-white/80">
+              Expert decorative concrete solutions, flatwork, and foundations in Billings, MT and the surrounding areas.
+            </p>
+            <p className="mt-4 max-w-[55ch] text-base leading-relaxed text-white/70">
+              Serving Montana since 2006, we transform old and new concrete surfaces into attractive, long-lasting features for residential and commercial properties.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a href="tel:+14065982444">
+                <Button size="lg" variant="secondary">
+                  <Phone data-icon="inline-start" />
+                  Call (406) 598-2444
+                </Button>
+              </a>
+              <Link to="/services">
+                <Button size="lg" variant="outline" className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white">
+                  <Sparkles data-icon="inline-start" />
+                  Explore Services
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right: contact form */}
+          <div className="w-full">
+            <ContactForm />
           </div>
         </div>
       </section>
