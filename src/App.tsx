@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
+import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import Home from "./pages/Home";
 const Services = lazy(() => import("./pages/Services"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -14,6 +15,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <GoogleAnalytics />
         <Suspense fallback={<div className="min-h-screen bg-background" aria-label="Loading page" />}>
           <Routes>
             <Route path="/" element={<Home />} />
