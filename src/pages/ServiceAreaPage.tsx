@@ -69,8 +69,8 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {SERVICES.map((service) => (
-                <Card key={service.slug} className="h-full overflow-hidden">
-                  <div className="h-44 w-full overflow-hidden">
+                <Card key={service.slug} className="flex h-full flex-col overflow-hidden">
+                  <div className="h-40 w-full overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.imageAlt}
@@ -103,9 +103,9 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
         </section>
 
         {/* Project Carousel */}
-        <section className="bg-background px-4 py-10 sm:px-6 lg:px-8 md:py-14">
-          <div className="mx-auto max-w-5xl">
-            <div className="flex flex-col items-center text-center mb-5">
+        <section className="bg-background px-4 py-12 sm:px-6 lg:px-8 md:py-16">
+          <div className="mx-auto max-w-4xl">
+            <div className="flex flex-col items-center text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-balance text-foreground">
                 Our Work in {location.name}
               </h2>
@@ -113,12 +113,12 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
                 A showcase of decorative concrete projects completed in and around {location.name}, MT.
               </p>
             </div>
-            <Carousel opts={{ loop: true }} className="mx-auto max-w-4xl">
+            <Carousel opts={{ loop: true }} className="mx-auto max-w-3xl">
               <CarouselContent>
                 {SHOWCASE_IMAGES.map((image) => (
                   <CarouselItem key={image.src} className="sm:basis-1/2 lg:basis-1/3">
                     <div className="flex flex-col gap-2">
-                      <div className="h-44 w-full overflow-hidden rounded-lg">
+                      <div className="h-40 w-full overflow-hidden rounded-lg">
                         <img
                           src={image.src}
                           alt={image.caption}

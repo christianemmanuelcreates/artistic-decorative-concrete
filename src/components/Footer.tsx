@@ -93,13 +93,14 @@ export function Footer({ description, links, businessName }: FooterProps) {
   return (
     <footer className="border-t border-white/10 bg-[#1A1A1D] py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div className="md:col-span-1">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand column */}
+          <div>
             <Link to="/" className="flex items-center gap-2">
               <img
                 src={LOGO_SRC}
                 alt="Artistic Decorative Concrete logo"
-                className="h-12 w-auto"
+                className="h-16 w-auto"
               />
               <span className="sr-only">{businessName}</span>
             </Link>
@@ -114,14 +115,15 @@ export function Footer({ description, links, businessName }: FooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.ariaLabel}
-                  className="flex size-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-primary hover:text-white"
+                  className="flex size-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-primary hover:text-white"
                 >
-                  <social.icon className="size-4" />
+                  <social.icon className="size-5" />
                 </a>
               ))}
             </div>
           </div>
 
+          {/* Quick Links column */}
           <div>
             <h2 className="text-sm font-semibold text-white">Quick Links</h2>
             <ul className="mt-4 flex flex-col gap-2">
@@ -138,6 +140,7 @@ export function Footer({ description, links, businessName }: FooterProps) {
             </ul>
           </div>
 
+          {/* Service Areas column */}
           <div>
             <h2 className="text-sm font-semibold text-white">Service Areas</h2>
             <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2">
@@ -154,6 +157,7 @@ export function Footer({ description, links, businessName }: FooterProps) {
             </ul>
           </div>
 
+          {/* Contact column */}
           <div>
             <h2 className="text-sm font-semibold text-white">Contact</h2>
             <ul className="mt-4 flex flex-col gap-3">

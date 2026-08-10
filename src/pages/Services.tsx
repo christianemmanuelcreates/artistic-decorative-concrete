@@ -63,8 +63,8 @@ export default function Services() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {SERVICES.map((service) => (
-              <Card key={service.slug} className="h-full overflow-hidden">
-                <div className="h-44 w-full overflow-hidden">
+              <Card key={service.slug} className="flex h-full flex-col overflow-hidden">
+                <div className="h-40 w-full overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.imageAlt}

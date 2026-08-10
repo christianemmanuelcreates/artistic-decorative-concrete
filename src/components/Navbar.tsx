@@ -28,12 +28,12 @@ export function Navbar({ items, cta, businessName }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#1A1A1D]/95 backdrop-blur supports-[backdrop-filter]:bg-[#1A1A1D]/80">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center gap-2">
           <img
             src={LOGO_SRC}
             alt="Artistic Decorative Concrete logo"
-            className="h-10 w-auto md:h-12"
+            className="h-14 w-auto md:h-16"
           />
           <span className="sr-only">{businessName}</span>
         </Link>

@@ -122,27 +122,27 @@ export default function Home() {
       </section>
 
       {/* Constrained Photo Carousel */}
-      <section className="bg-background px-4 py-8 md:py-10">
-        <div className="mx-auto max-w-5xl">
+      <section className="bg-background px-4 pt-12 pb-10 md:pt-16 md:pb-14">
+        <div className="mx-auto max-w-4xl">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-            <h2 className="text-balance text-2xl font-bold leading-tight tracking-tighter text-foreground md:text-3xl">
+            <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
               Our Project Gallery
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground md:text-base">
+            <p className="mt-3 text-sm text-muted-foreground md:text-base">
               A look at the decorative concrete work we deliver across Montana
             </p>
           </div>
-          <div className="mt-5">
+          <div className="mt-8">
             <Carousel
               opts={{ loop: true }}
               setApi={setCarouselApi}
-              className="mx-auto max-w-4xl"
+              className="mx-auto max-w-3xl"
             >
               <CarouselContent>
                 {SHOWCASE_IMAGES.map((slide) => (
                   <CarouselItem key={slide.src} className="sm:basis-1/2 lg:basis-1/3">
                     <div className="flex flex-col gap-2">
-                      <div className="h-44 w-full overflow-hidden rounded-lg">
+                      <div className="h-40 w-full overflow-hidden rounded-lg">
                         <img
                           src={slide.src}
                           alt={slide.caption}
@@ -165,7 +165,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="bg-muted px-4 py-12 md:py-16">
+      <section className="bg-muted px-4 py-14 md:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
@@ -175,10 +175,10 @@ export default function Home() {
               Upscale decorative concrete for residential and commercial properties in Billings, MT
             </p>
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
             {SERVICES.map((service) => (
-              <Card key={service.slug} className="h-full overflow-hidden">
-                <div className="h-44 w-full overflow-hidden">
+              <Card key={service.slug} className="flex h-full flex-col overflow-hidden">
+                <div className="h-40 w-full overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.imageAlt}

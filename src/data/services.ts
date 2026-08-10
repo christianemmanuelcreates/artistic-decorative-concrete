@@ -95,8 +95,8 @@ export const SERVICES: ServiceItem[] = [
     seoDescription:
       "Concrete restoration and resurfacing in Billings, MT repairing and rejuvenating worn or damaged concrete driveways, patios, and walkways without full replacement.",
     icon: RefreshCw,
-    image: "/images/services/stone_work.jpg",
-    imageAlt: "Concrete restoration and resurfacing in Billings MT",
+    image: "/images/services/Concrete_walkway_side.jpg",
+    imageAlt: "Concrete walkway restoration and resurfacing in Billings MT",
   },
   {
     slug: "custom-concrete-solutions",
