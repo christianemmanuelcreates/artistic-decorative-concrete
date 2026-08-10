@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 const SITE_URL = "https://artisticdecorativeconcrete.com";
 
 const BUSINESS_DESCRIPTION =
-  "Artistic Decorative Concrete provides expert decorative concrete, flatwork, and foundations in Billings, MT. Serving Montana since 2006.";
+  "Artistic Decorative Concrete provides expert decorative concrete, flatwork, and foundations in Billings and Laurel, MT. Serving Montana since 2006.";
 
 const SERVICES_ITEM_LIST = [
   "Decorative & Stamped Concrete",
@@ -120,6 +120,13 @@ export function SEOHead({ seo, hasLocalBusiness = false, geo, business }: SEOHea
             })),
           }
         : {}),
+      sameAs: business?.sameAs || [],
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5",
+        bestRating: "5",
+        ratingCount: "21",
+      },
       ...(business?.openingHours && business.openingHours.length > 0
         ? {
             openingHoursSpecification: business.openingHours.map((hours) => ({
@@ -232,7 +239,10 @@ export function SEOHead({ seo, hasLocalBusiness = false, geo, business }: SEOHea
       <meta property="og:type" content={seo.ogType || "website"} />
       <meta property="og:site_name" content={businessName} />
       <meta property="og:locale" content="en_US" />
+      <meta property="og:image" content={`${SITE_URL}/Artistic_Decorative_Concrete_logo-removebg-preview.png`} />
+      <meta property="og:image:alt" content="Artistic Decorative Concrete logo" />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={`${SITE_URL}/Artistic_Decorative_Concrete_logo-removebg-preview.png`} />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       <meta

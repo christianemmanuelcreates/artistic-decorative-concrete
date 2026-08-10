@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import ContactForm from "@/components/ContactForm";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import {
   Carousel,
   CarouselContent,
@@ -22,32 +21,12 @@ import {
   Star,
 } from "lucide-react";
 import { SERVICES, SHOWCASE_IMAGES } from "@/data/services";
+import { LOCATIONS } from "@/data/locations";
 
 const stats = [
   { value: "20+", label: "Years of Industry Experience", icon: Star },
   { value: "100%", label: "Custom Concrete Solutions", icon: CheckCircle2 },
   { value: "2006", label: "Serving Montana Since 2006", icon: Sparkles },
-];
-
-const testimonials = [
-  {
-    quote:
-      "\u201CI had a foundation and driveway project done, and these guys nailed it. Clean work, fair pricing, and excellent communication throughout. Highly recommend for any concrete work.\u201D",
-    author: "Mark Reynolds",
-    initials: "MR",
-  },
-  {
-    quote:
-      "\u201CArtistic Decorative Concrete and the entire staff did an outstanding job. These are professionals and the best of class in their field.\u201D",
-    author: "Patrick Johnson",
-    initials: "PJ",
-  },
-  {
-    quote:
-      "\u201CArtistic Decorative Concrete exceeded our expectations. The stamped patio turned out beautiful, and the crew was courteous, on time, and highly skilled.\u201D",
-    author: "Sarah Thompson",
-    initials: "ST",
-  },
 ];
 
 export default function Home() {
@@ -64,9 +43,9 @@ export default function Home() {
   return (
     <Layout
       seo={{
-        title: "Decorative Concrete Billings, MT | Artistic Decorative",
+        title: "Decorative Concrete Billings & Laurel, MT | Artistic Decorative",
         description:
-          "Artistic Decorative Concrete provides expert decorative concrete, flatwork, and foundations in Billings, MT. Serving Montana since 2006. Call for a free estimate.",
+          "Artistic Decorative Concrete provides expert decorative concrete, flatwork, and foundations in Billings and Laurel, MT. Serving Montana since 2006. Call for a free estimate.",
         canonical: "https://artisticdecorativeconcrete.com/",
         ogType: "website",
         schemaTypes: ["LocalBusiness", "Organization", "WebSite", "BreadcrumbList"],
@@ -82,12 +61,25 @@ export default function Home() {
         name: "Artistic Decorative Concrete",
         phone: "+1-406-598-2444",
         address: {
-          addressLocality: "Billings",
+          streetAddress: "3100 S Park City Rd",
+          addressLocality: "Laurel",
           addressRegion: "MT",
+          postalCode: "59044",
           addressCountry: "US",
         },
-        areaServed: [],
-        openingHours: [],
+        sameAs: [
+          "https://www.facebook.com/people/Artistic-Decorative-Concrete/61555235653912/",
+          "https://www.yelp.com/biz/artistic-decorative-concrete-laurel",
+          "https://share.google/sEh0QIiwbGpCY3nN7",
+        ],
+        areaServed: LOCATIONS.map((loc) => ({ name: loc.name })),
+        openingHours: [
+          {
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            opens: "00:00",
+            closes: "23:59",
+          },
+        ],
       }}
     >
       {/* Hero */}
@@ -115,13 +107,13 @@ export default function Home() {
               Serving Montana Since 2006
             </Badge>
             <h1 className="max-w-2xl text-balance text-4xl font-bold leading-none tracking-tighter text-white md:text-5xl lg:text-6xl">
-              Artistic Decorative Concrete in Billings, MT
+              Artistic Decorative Concrete in Billings &amp; Laurel, MT
             </h1>
             <p className="mt-6 max-w-[55ch] text-lg leading-relaxed text-white/80">
-              Expert decorative concrete solutions, flatwork, and foundations in Billings, MT and the surrounding areas.
+              Expert decorative concrete solutions, flatwork, and foundations serving Billings, Laurel, and the surrounding Montana communities.
             </p>
             <p className="mt-4 max-w-[55ch] text-base leading-relaxed text-white/70">
-              Serving Montana since 2006, we transform old and new concrete surfaces into attractive, long-lasting features for residential and commercial properties.
+              Serving Montana since 2006, we transform old and new concrete surfaces into attractive, long-lasting features for residential and commercial properties across Billings and Laurel, MT.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a href="tel:+14065982444">
@@ -171,6 +163,8 @@ export default function Home() {
                         <img
                           src={slide.src}
                           alt={slide.caption}
+                          width={600}
+                          height={400}
                           loading="lazy"
                           className="h-full w-full object-cover"
                         />
@@ -197,7 +191,7 @@ export default function Home() {
               Expert Concrete Services
             </h2>
             <p className="mt-4 text-base text-muted-foreground">
-              Upscale decorative concrete for residential and commercial properties in Billings, MT
+              Upscale decorative concrete for residential and commercial properties in Billings, Laurel, and across Montana
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
@@ -207,6 +201,8 @@ export default function Home() {
                   <img
                     src={service.image}
                     alt={service.imageAlt}
+                    width={600}
+                    height={400}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                   />
@@ -262,55 +258,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-background px-4 py-14 md:py-20">
+      {/* Google Reviews + Map */}
+      <GoogleReviews />
+
+      {/* Google Map embed */}
+      <section className="bg-muted px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col items-center text-center">
             <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
-              Client Testimonials
+              Visit Us in Laurel, MT
             </h2>
             <p className="mt-4 max-w-[65ch] text-muted-foreground">
-              Hear from property owners across Billings who trusted us with their concrete projects.
+              We are based in Laurel and proudly serve Billings and the surrounding Montana communities. Find us on Google or call (406) 598-2444.
             </p>
           </div>
-          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.author} className="h-full">
-                <CardHeader>
-                  <div
-                    role="img"
-                    aria-label="Rated 5 out of 5 stars"
-                    className="flex gap-1"
-                  >
-                    {Array.from({ length: 5 }).map((_, starIndex) => (
-                      <Star
-                        key={starIndex}
-                        className="size-4 fill-primary text-primary"
-                        aria-hidden="true"
-                      />
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent className="flex flex-col">
-                  <p className="leading-relaxed text-muted-foreground">
-                    {testimonial.quote}
-                  </p>
-                  <Separator className="my-6" />
-                  <div className="flex items-center gap-3">
-                    <Avatar>
-                      <AvatarFallback className="bg-primary/10 text-xs font-semibold text-primary">
-                        {testimonial.initials}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="font-semibold text-foreground">
-                        {testimonial.author}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="mt-8 overflow-hidden rounded-lg border border-border shadow-sm">
+            <iframe
+              title="Artistic Decorative Concrete location map - 3100 S Park City Rd, Laurel, MT 59044"
+              src="https://www.google.com/maps?q=3100+S+Park+City+Rd,+Laurel,+MT+59044&output=embed"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>

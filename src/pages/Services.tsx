@@ -58,7 +58,7 @@ export default function Services() {
               Our Services
             </h2>
             <p className="mt-2 text-sm text-muted-foreground max-w-[55ch]">
-              Complete concrete and decorative services for residential and commercial properties in Billings, MT.
+              Complete concrete and decorative services for residential and commercial properties in Billings, Laurel, and surrounding Montana communities.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -68,6 +68,8 @@ export default function Services() {
                   <img
                     src={service.image}
                     alt={service.imageAlt}
+                    width={600}
+                    height={400}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                   />

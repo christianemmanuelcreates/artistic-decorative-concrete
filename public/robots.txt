@@ -1,5 +1,11 @@
+# robots.txt for Artistic Decorative Concrete
+# Allow all search engines and AI crawlers to index the full site
+
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://artisticdecorativeconcrete.com/sitemap.xml
 
 # AI crawlers - allowed for citation in AI answers
 User-agent: GPTBot
@@ -11,13 +17,25 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
 Allow: /
 
 # Block training-only crawler (no citation benefit)

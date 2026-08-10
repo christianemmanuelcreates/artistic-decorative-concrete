@@ -74,6 +74,8 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
                     <img
                       src={service.image}
                       alt={service.imageAlt}
+                      width={600}
+                      height={400}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                     />
@@ -127,6 +129,8 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
                         <img
                           src={image.src}
                           alt={image.caption}
+                          width={600}
+                          height={400}
                           loading="lazy"
                           className="h-full w-full object-cover"
                         />

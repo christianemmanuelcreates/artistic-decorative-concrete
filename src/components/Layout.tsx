@@ -51,7 +51,7 @@ const NAV_ITEMS = [
 const NAV_CTA = { text: "Get a Free Estimate", href: "/contact" };
 
 const FOOTER_DESCRIPTION =
-  "Artistic Decorative Concrete provides expert decorative concrete, flatwork, and foundations in Billings, MT and surrounding areas. Serving Montana since 2006.";
+  "Artistic Decorative Concrete provides expert decorative concrete, flatwork, and foundations in Billings, Laurel, MT, and surrounding areas. Serving Montana since 2006.";
 
 const FOOTER_LINKS = [
   { label: "Home", href: "/" },
@@ -72,7 +72,7 @@ const HAS_LOCAL_BUSINESS = true;
 const SOCIAL_LINKS = [
   "https://www.facebook.com/people/Artistic-Decorative-Concrete/61555235653912/",
   "https://www.yelp.com/biz/artistic-decorative-concrete-laurel",
-  "https://share.google/u8u46DlI07uhgJnWy",
+  "https://share.google/sEh0QIiwbGpCY3nN7",
 ];
 
 const SITE_BUSINESS = {
