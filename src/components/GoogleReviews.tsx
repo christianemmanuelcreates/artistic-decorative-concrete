@@ -182,4 +182,3 @@ export function GoogleReviews() {
 }
 
 
-export { GoogleReviews }
