@@ -56,6 +56,7 @@ export function GoogleReviews() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     if (!carouselApi) return;
@@ -67,6 +68,12 @@ export function GoogleReviews() {
       carouselApi.off("select", onSelect);
     };
   }, [carouselApi]);
+
+  useEffect(() => {
+    if (!carouselApi || isPaused) return;
+    const interval = window.setInterval(() => carouselApi.scrollNext(), 7000);
+    return () => window.clearInterval(interval);
+  }, [carouselApi, isPaused]);
 
   return (
     <section className="bg-background px-4 py-14 md:py-20">
@@ -102,9 +109,13 @@ export function GoogleReviews() {
 
         <div className="mt-10">
           <Carousel
-            opts={{ loop: true, align: "start" }}
+            opts={{ loop: true, align: "center" }}
             setApi={setCarouselApi}
-            className="mx-auto"
+            className="mx-auto px-8 sm:px-12 lg:px-16"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onFocusCapture={() => setIsPaused(true)}
+            onBlurCapture={() => setIsPaused(false)}
           >
             <CarouselContent>
               {REVIEWS.map((review) => (
@@ -112,22 +123,22 @@ export function GoogleReviews() {
                   key={review.author}
                   className="sm:basis-1/2 lg:basis-1/3"
                 >
-                  <Card className="h-full">
-                    <CardContent className="flex h-full flex-col p-6">
-                      <div className="flex items-center justify-between">
+                  <Card className="mx-auto h-full max-w-[420px]">
+                    <CardContent className="flex h-full flex-col items-center p-6 text-center sm:p-7">
+                      <div className="flex w-full items-center justify-between gap-4">
                         <GoogleStars rating={review.rating} />
                         <span className="text-xs text-muted-foreground">
                           {review.date}
                         </span>
                       </div>
-                      <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      <p className="mt-5 flex-1 text-sm leading-relaxed text-muted-foreground">
                         {review.text}
                       </p>
-                      <div className="mt-6 flex items-center gap-3 border-t pt-4">
+                      <div className="mt-6 flex w-full flex-col items-center gap-3 border-t pt-5">
                         <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
                           {review.initials}
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col items-center">
                           <span className="text-sm font-semibold text-foreground">
                             {review.author}
                           </span>
@@ -147,7 +158,7 @@ export function GoogleReviews() {
           </Carousel>
 
           {count > 0 && (
-            <div className="mt-4 text-center text-sm text-muted-foreground">
+            <div className="mt-5 text-center text-sm text-muted-foreground">
               {current} / {count}
             </div>
           )}
@@ -169,3 +180,6 @@ export function GoogleReviews() {
     </section>
   );
 }
+
+
+export { GoogleReviews }

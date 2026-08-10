@@ -258,34 +258,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Google Reviews + Map */}
+      {/* Google Reviews */}
       <GoogleReviews />
-
-      {/* Google Map embed */}
-      <section className="bg-muted px-4 py-14 md:py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col items-center text-center">
-            <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
-              Visit Us in Laurel, MT
-            </h2>
-            <p className="mt-4 max-w-[65ch] text-muted-foreground">
-              We are based in Laurel and proudly serve Billings and the surrounding Montana communities. Find us on Google or call (406) 598-2444.
-            </p>
-          </div>
-          <div className="mt-8 overflow-hidden rounded-lg border border-border shadow-sm">
-            <iframe
-              title="Artistic Decorative Concrete location map - 3100 S Park City Rd, Laurel, MT 59044"
-              src="https://www.google.com/maps?q=3100+S+Park+City+Rd,+Laurel,+MT+59044&output=embed"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="bg-[#1A1A1D] px-4 py-14 text-white md:py-20">
