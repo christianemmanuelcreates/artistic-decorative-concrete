@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* Constrained Photo Carousel */}
-      <section className="bg-background px-4 pt-12 pb-10 md:pt-16 md:pb-14">
+      <section className="bg-background px-4 py-8 md:py-10">
         <div className="mx-auto max-w-4xl">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
             <h2 className="text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
@@ -132,17 +132,17 @@ export default function Home() {
               A look at the decorative concrete work we deliver across Montana
             </p>
           </div>
-          <div className="mt-8">
+          <div className="mt-6">
             <Carousel
               opts={{ loop: true }}
               setApi={setCarouselApi}
-              className="mx-auto max-w-3xl"
+              className="mx-auto h-[184px] max-w-3xl md:h-[208px]"
             >
-              <CarouselContent>
+              <CarouselContent className="h-full items-start">
                 {SHOWCASE_IMAGES.map((slide) => (
-                  <CarouselItem key={slide.src} className="sm:basis-1/2 lg:basis-1/3">
-                    <div className="flex flex-col gap-2">
-                      <div className="h-40 w-full overflow-hidden rounded-lg">
+                  <CarouselItem key={slide.src} className="h-full sm:basis-1/2 lg:basis-1/3">
+                    <div className="flex h-full flex-col gap-2">
+                      <div className="h-36 w-full shrink-0 overflow-hidden rounded-lg md:h-40">
                         <img
                           src={slide.src}
                           alt={slide.caption}

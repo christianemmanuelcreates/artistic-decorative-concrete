@@ -103,9 +103,9 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
         </section>
 
         {/* Project Carousel */}
-        <section className="bg-background px-4 py-12 sm:px-6 lg:px-8 md:py-16">
+        <section className="bg-background px-4 py-8 sm:px-6 lg:px-8 md:py-10">
           <div className="mx-auto max-w-4xl">
-            <div className="flex flex-col items-center text-center mb-8">
+            <div className="mb-6 flex flex-col items-center text-center">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-balance text-foreground">
                 Our Work in {location.name}
               </h2>
@@ -113,12 +113,12 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
                 A showcase of decorative concrete projects completed in and around {location.name}, MT.
               </p>
             </div>
-            <Carousel opts={{ loop: true }} className="mx-auto max-w-3xl">
-              <CarouselContent>
+            <Carousel opts={{ loop: true }} className="mx-auto h-[184px] max-w-3xl md:h-[208px]">
+              <CarouselContent className="h-full items-start">
                 {SHOWCASE_IMAGES.map((image) => (
-                  <CarouselItem key={image.src} className="sm:basis-1/2 lg:basis-1/3">
-                    <div className="flex flex-col gap-2">
-                      <div className="h-40 w-full overflow-hidden rounded-lg">
+                  <CarouselItem key={image.src} className="h-full sm:basis-1/2 lg:basis-1/3">
+                    <div className="flex h-full flex-col gap-2">
+                      <div className="h-36 w-full shrink-0 overflow-hidden rounded-lg md:h-40">
                         <img
                           src={image.src}
                           alt={image.caption}
