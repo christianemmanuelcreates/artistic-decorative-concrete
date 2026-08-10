@@ -84,13 +84,18 @@ export function ServiceAreaPage({ location }: ServiceAreaPageProps) {
                       <CardTitle className="text-base">{service.title}</CardTitle>
                     </div>
                   </CardHeader>
-                  <CardContent className="p-4 pt-0">
+                  <CardContent className="flex flex-1 flex-col p-4 pt-0">
                     <p className="text-xs leading-relaxed text-muted-foreground">
                       {service.description}
                     </p>
                     <p className="mt-2 text-xs leading-relaxed text-muted-foreground/80">
                       {service.seoDescription}
                     </p>
+                    <Link to="/contact" className="mt-4 block">
+                      <Button size="sm" className="w-full">
+                        Get a Free Estimate
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
