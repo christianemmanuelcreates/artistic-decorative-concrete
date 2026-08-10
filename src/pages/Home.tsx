@@ -237,9 +237,18 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="bg-card px-4 py-14 md:py-20">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="text-center text-balance text-3xl font-bold leading-tight tracking-tighter text-foreground md:text-4xl">
+      <section className="relative overflow-hidden px-4 py-14 md:py-20">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/services/concrete_flatwork.jpeg')" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-black/60"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-7xl">
+          <h2 className="text-center text-balance text-3xl font-bold leading-tight tracking-tighter text-white md:text-4xl">
             By the Numbers
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -248,10 +257,10 @@ export default function Home() {
                 <div className="flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <stat.icon className="size-7" aria-hidden="true" />
                 </div>
-                <p className="mt-4 text-4xl font-bold leading-none tracking-tighter text-foreground md:text-5xl">
+                <p className="mt-4 text-4xl font-bold leading-none tracking-tighter text-white md:text-5xl">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
+                <p className="mt-2 text-sm text-white/80">{stat.label}</p>
               </div>
             ))}
           </div>
