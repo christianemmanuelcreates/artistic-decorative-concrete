@@ -15,22 +15,42 @@ import { Input } from "@/components/ui/input";
 import { NativeSelect } from "@/components/ui/native-select";
 import { Textarea } from "@/components/ui/textarea";
 import { Send } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
+    const formData = new FormData(form);
     setSubmitting(true);
-    window.setTimeout(() => {
+
+    try {
+      const { error } = await supabase.from("contact_submissions").insert({
+        name: formData.get("name"),
+        phone: formData.get("phone") || null,
+        email: formData.get("email"),
+        service: formData.get("service") || null,
+        message: formData.get("message"),
+      });
+
+      if (error) throw error;
+
       toast("Request received", {
         description:
           "Thanks for reaching out. We will contact you within one business day to schedule your free estimate.",
       });
-      setSubmitting(false);
       form.reset();
-    }, 900);
+    } catch (cause) {
+      console.error("Contact form submission failed", cause);
+      toast("Something went wrong", {
+        description:
+          "We could not send your request right now. Please call (406) 598-2444 or try again later.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
